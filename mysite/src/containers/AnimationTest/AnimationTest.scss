@@ -1,0 +1,157 @@
+@font-face {
+  font-family: 'Century Gothic Bold';
+  font-style: normal;
+  font-weight: 600;
+  src:
+    url(../../styles/fonts/CG_Bold.ttf) format('truetype'),
+}
+
+.AnimationTest {
+  z-index: 1;
+  width: 100%;
+  min-width: 1280px;
+  max-width: 1920px;
+  overflow: scroll;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    font-family: "Century Gothic", sans-serif;
+  }
+
+
+
+  * {
+    display: flex;
+  }
+
+  .lottie-div {
+    position: fixed;
+    height: 200px;
+    width: 100%;
+    background-color: lightgray;
+  }
+
+  .side-bar {
+    z-index: 3;
+    width: 350px;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    .bar {
+      width: 220px;
+      height: 44px;
+      margin: 30px 0 0 80px;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+
+      img {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+      }
+
+      &.selected {
+        img {
+          opacity: 1;
+        }
+        .logo-div { border: none; }
+        .bar-text {
+          font-family: 'Century Gothic Bold',  sans-serif;
+          color: black;
+        }
+      }
+
+      .logo-div {
+        height: 44px;
+        width: 44px;
+        border-radius: 22px;
+        border: 1px solid #11469A;
+
+      }
+
+      .bar-text {
+        margin-left: 30px;
+        color: gray;
+      }
+
+    }
+
+  }
+
+
+
+  .content {
+    height: 100vh;
+    width: 100%;
+    min-width: 1280px;
+    max-width: 1920px;
+    overflow: scroll;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: darkblue;
+
+    .svgback-div {
+      height: 100%;
+      width: 100%;
+    }
+
+    .test {
+      height: 100%;
+      width: 100%;
+      background-color: transparent;
+      z-index: 2;
+    }
+
+  }
+
+  .div-3, .div-2, .div-1 {
+    z-index: 3;
+    width: calc(100% / 3);
+    height: 100%;
+  }
+
+  .div-1 {
+    background-color: red;
+  }
+
+  .div-2 {
+    background-color: white;
+  }
+
+  .div-3 {
+    background-color: black;
+  }
+
+
+  .animate {
+    background-color: white;
+    height: 300px;
+    width: 100vw;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+
+    .test {
+      height: 40px;
+      width: 40px;
+      background-color: red;
+      margin-left: 40px;
+
+    }
+  }
+
+}

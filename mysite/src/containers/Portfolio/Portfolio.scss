@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+.Portfolio {
+  overflow: hidden;
+  width: 100%;
+  min-width: 1280px;
+  max-width: 1920px;
+  min-height: 100vh;
+  display: flex;
+  background-color: black;
+  * {
+    display: flex;
+  }
+
+  .content {
+    width: 100%;
+    flex-direction: column;
+    position: relative;
+    .scroll-indicator-div {
+      position: absolute;
+      left: 0;
+      top: 55vh;
+      height: 80vh;
+      width: 100%;
+
+    }
+
+    .full-window {
+      width: 100%;
+      height: 100vh;
+
+    }
+
+    .intro-div {
+      background-color: #990000;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      h2 {
+        font-family: Raleway;
+      }
+      h1 {
+        font-family: Georgia;
+        color: black;
+        font-size: 9rem;
+        margin: 0 0 40px 0;
+      }
+
+      .title-div {
+        width: 80%;
+      }
+
+      .text-div {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+
+        .intro-text {
+          width: 60%;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+    }
+
+    .portfolio-div {
+      background-color: black;
+
+      .port-image-div {
+        width: 50%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 90%;
+          height: auto;
+        }
+      }
+
+    }
+
+  }
+}

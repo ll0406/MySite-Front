@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+.Blog {
+  overflow: hidden;
+  width: 100%;
+  min-width: 1280px;
+  max-width: 1920px;
+  min-height: 100vh;
+  display: flex;
+  background-color: black;
+
+  * {
+    display: flex;
+  }
+
+  p, h1, h2, h3, h4 {
+    user-select: none;
+    font-family: Georgia;
+  }
+
+  .content {
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+
+    .title-quote-div {
+      width: 100%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #990000;
+      padding-bottom: 50px;
+
+      h2 {
+        font-family: Raleway;
+        color: white;
+      }
+      h1 {
+        font-family: Georgia;
+        color: black;
+        font-size: 9rem;
+        margin-bottom: 40px;
+      }
+
+      .title-div {
+        width: 80%;
+      }
+
+      .quote-div {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+
+        .quote-text {
+          width: 60%;
+          flex-direction: column;
+          align-items: flex-end;
+          .author{ color: white; }
+          .quote { color: black; }
+        }
+      }
+    }
+
+    .blog-div {
+      flex-direction: column;
+
+    }
+
+  }
+}

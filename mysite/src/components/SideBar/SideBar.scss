@@ -1,0 +1,43 @@
+.SideBar {
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 100px;
+    top: 30px;
+    left: 30px;
+    background-color: red;
+
+    justify-content: center;
+    align-items: center;
+
+    .png-div {
+      position:relative;
+      width: 60px;
+      height: 60px;
+      border-radius: 30px;
+      transition: 500ms ease;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.2);
+      }
+
+      .png-background {
+        z-index: -1;
+        background-color: purple;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+      }
+
+      img {
+        z-index: 2;
+        height: 100%;
+        width: 100%;
+      }
+    }
+}

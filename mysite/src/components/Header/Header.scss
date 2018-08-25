@@ -1,0 +1,88 @@
+.Header {
+  height: 80px;
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 3;
+
+  p {
+    user-select: none;
+    font-family: Georgia;
+  }
+
+
+  .svg-div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 80px;
+    width: 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    transition: 500ms ease;
+
+    .lottie-div {
+      height: 30px;
+      width: 30px;
+    }
+
+    &:hover {
+      color: #990000;
+    }
+
+    p {
+      margin: 10px 0 0 0;
+    }
+  }
+
+  .menu-div {
+    position: relative;
+    margin-top: 30%;
+    height: 70%;
+    width: 100%;
+    flex-direction: column;
+
+    .link-div {
+      position: relative;
+      z-index: 1;
+      margin: 20px 0 20px 0;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      height: 10%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: white;
+      &:hover {
+        color: #990000;
+      }
+      p {
+        transition: 300ms ease;
+      }
+
+      .blog-back, .portfolio-back, .videos-back, .contact-back {
+
+        z-index: -1;
+        position: absolute;
+        left: 15px;
+        height: 30px;
+        width: 30px;
+        border-radius: 15px;
+      }
+
+
+    }
+
+  }
+
+
+  * {
+    display: flex;
+  }
+}

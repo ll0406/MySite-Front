@@ -1,0 +1,49 @@
+.BlogRow {
+  width: 100%;
+  height: auto;
+  display: flex;
+  * {
+    display: flex;
+  }
+  justify-content: center;
+
+  margin: 50px 0 200px 0;
+
+  .display-div {
+    flex-direction: row;
+    width: 75%;
+
+    .single-blog {
+      flex-direction: column;
+      width: 33.333%;
+      margin-right: 5%;
+      height: auto;
+      overflow-wrap: break-word;
+
+      &.tail {
+        margin-right: 0;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      h1, p {
+        font-family: Georgia;
+        color: white;
+        display: inline;
+      }
+      h1 {
+        span {
+          display: inline-block;
+          white-space: nowrap;
+        }
+      }
+      .split-div {
+        background-color: gray;
+        width: 30%;
+        height: 2px;
+      }
+    }
+
+  }
+}

@@ -1,0 +1,12 @@
+.App {
+  .menuDiv {
+    z-index: 999;
+    position: fixed;
+    display: flex;
+    height: 30px;
+    width: 30px;
+    top: 30px;
+    left: 30px;
+    background-color: purple;
+  }
+}
