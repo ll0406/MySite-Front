@@ -4,17 +4,10 @@ import { TweenMax, TimelineMax, Expo, Linear } from "gsap";
 import CSSPlugin from 'gsap/src/uncompressed/plugins/CSSPlugin';
 import TextPlugin from 'gsap/src/uncompressed/plugins/TextPlugin';
 import lottie from 'lottie-web';
+import cx from 'classnames';
 
 import menuJSON from './menu.json';
 import './Header.scss';
-
-/*
-Credits to png
-<div>Icons made by <a href="https://www.flaticon.com/authors/baianat" title="Baianat">Baianat</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-<div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-
-*/
-
 
 
 class Header extends Component {
@@ -25,7 +18,6 @@ class Header extends Component {
     this.textRef = React.createRef();
     this.blogRef = React.createRef();
     this.portfolioRef = React.createRef();
-    this.videosRef = React.createRef();
     this.contactRef = React.createRef();
 
     //menu lottie div ref
@@ -78,7 +70,7 @@ class Header extends Component {
       let tl = new TimelineMax();
       tl.to(this.headerRef.current, 0.3, {width: '300px', backgroundColor: 'gray', ease: Expo.easeOut});
       tl.to(this.headerRef.current, 0.3, {height: '100vh', ease: Expo.easeOut});
-      let linkRefs = [this.homeRef.current, this.blogRef.current, this.portfolioRef.current, this.videosRef.current, this.contactRef.current];
+      let linkRefs = [this.homeRef.current, this.blogRef.current, this.portfolioRef.current, this.contactRef.current];
       tl.staggerFrom(linkRefs, 0.5, {x: 100, opacity: 0, ease: Expo.easeOut}, 0.05);
       tl.to(this.textRef.current, 0.4, {text:"close", ease:Linear.easeNone});
     })
@@ -90,7 +82,7 @@ class Header extends Component {
       {frame: (this.anim.totalFrames-1), onUpdate:this.applyValue, onUpdateParams:["{self}"]},
     );
     let tl = new TimelineMax();
-    let linkRefs = [this.contactRef.current, this.videosRef.current, this.portfolioRef.current, this.blogRef.current, this.homeRef.current];
+    let linkRefs = [this.contactRef.current, this.portfolioRef.current, this.blogRef.current, this.homeRef.current];
     tl.staggerTo(linkRefs, 0.5, {x: 100, autoAlpha: 0, ease: Expo.easeOut}, 0.05);
     tl.to(this.headerRef.current, 0.3, {height: '80px',ease: Expo.easeOut});
     tl.to(this.headerRef.current, 0.3, {width: '50px', backgroundColor: 'transparent' ,ease: Expo.easeOut});
@@ -98,8 +90,8 @@ class Header extends Component {
     tl.eventCallback('onComplete', () => this.setState({isOpen: false}));
   }
 
-  toContact = () => {
-    this.props.history.push('/about');
+  toCredit = () => {
+    this.props.history.push('/credits');
     this.closeMenu();
   }
 
@@ -139,10 +131,7 @@ class Header extends Component {
                 <div className='link-div' ref={this.portfolioRef} onClick={this.toProfolio}>
                   <p>Portfolio</p>
                 </div>
-                <div className='link-div' ref={this.videosRef}>
-                  <p>Videos</p>
-                </div>
-                <div className='link-div' ref={this.contactRef} onClick={this.toContact}>
+                <div className={cx('link-div', 'credit-div')} ref={this.contactRef} onClick={this.toCredit}>
                   <p>Credits</p>
                 </div>
               </div>

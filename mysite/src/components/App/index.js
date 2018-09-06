@@ -4,7 +4,7 @@ import {
     Route,
     Switch,
 } from "react-router-dom";
-
+import { Helmet } from "react-helmet";
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react'
 import './App.scss';
@@ -21,6 +21,10 @@ const App = () => (
         <PersistGate loading={null} persistor={persistor}>
               <Router>
                 <div className='App'>
+                <Helmet>
+                    <meta charSet="utf-8" />
+                    <title>My Site</title>
+                </Helmet>
                   <Header />
                   <Route path="/" component={AppRoutes} />
                 </div>

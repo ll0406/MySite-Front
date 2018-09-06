@@ -9,7 +9,7 @@ export const getQuote = () => dispatch => {
 }
 
 export const getBlog = () => dispatch => {
-  axios.get(`http://django-env.hfmmi3iqww.us-east-1.elasticbeanstalk.com/blogs/?format=json`)
+  axios.get(`https://api.liliu.me/blogs/?format=json`)
       .then(res => {
         console.log(res.data);
         let data = res.data.map((datum) => {

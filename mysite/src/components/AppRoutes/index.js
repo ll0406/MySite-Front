@@ -7,6 +7,7 @@ import HomePage from '../../containers/HomePage';
 import Portfolio from '../../containers/Portfolio';
 import Blog from '../../containers/Blog';
 import BlogDetail from '../../containers/BlogDetail';
+import Credits from '../../components/Credits';
 const completeCall = target => {
   TweenLite.set(target, { clearProps: "position, width" });
 };
@@ -63,7 +64,7 @@ const AppRoutes = props =>
     >
       <Switch location={props.location}>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/about" component={About} />
+        <Route exact path="/credits" component={Credits} />
         <Route exact path='/portfolio' component={Portfolio} />
         <Route exact path='/blog' component={Blog} />
         <Route path='/blog/:id' component={BlogDetail} />

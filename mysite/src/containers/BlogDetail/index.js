@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import { TweenMax, Linear, TimelineMax, Expo } from "gsap";
 import axios from 'axios';
+import YouTube from 'react-youtube';
+
 
 import './BlogDetail.scss';
 
@@ -11,6 +13,7 @@ class BlogDetail extends Component {
     this.state = {
       datum: null,
       date: '',
+      videoOpt: {}
     }
 
     this.titleSummaryRef = React.createRef();
@@ -24,14 +27,15 @@ class BlogDetail extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://django-env.hfmmi3iqww.us-east-1.elasticbeanstalk.com/blogs/${this.props.match.params.id}/`)
+    axios.get(`https://api.liliu.me/blogs/${this.props.match.params.id}/`)
         .then(res => {
           let datum = res.data;
           let dateArray = new Date(datum.created).toDateString().split(' ');
           let date = dateArray[1] + ' ' + dateArray[2];
+
           this.setState({
             datum,
-            date
+            date,
           }, () => {
             TweenMax.staggerFrom(this.pageRef.current.children, 0.5, {x:100, autoAlpha:0}, 0.2);
           })
@@ -40,8 +44,7 @@ class BlogDetail extends Component {
   }
 
   render() {
-    const { datum, date } = this.state;
-
+    const { datum, date, videoOpt } = this.state;
     if (datum === null) {
       return (
         <div className='BlogDetail' />
@@ -62,6 +65,16 @@ class BlogDetail extends Component {
               <img src={datum.image} />
             </div>
         }
+
+        {
+          datum.videoID !== "" &&
+          <YouTube
+             opt={videoOpt}
+             videoId={datum.videoID}
+             containerClassName={'youtube-player'}
+            />
+        }
+
         <div className='content'>
           <p> {datum.content} </p>
         </div>

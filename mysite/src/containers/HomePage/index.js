@@ -15,7 +15,7 @@ import mask5 from './assets/mask_5.png';
 import FB from './assets/facebook.png';
 import INS from './assets/instagram.png';
 import IN from './assets/linkedin.png';
-import PS from './assets/playstation.png';
+import SM from './assets/steam.png';
 
 import WelcomeAnime from '../WelcomeAnime';
 import Header from '../../components/Header';
@@ -153,10 +153,10 @@ class HomePage extends Component {
               <h1 ref={this.introTextRef} className='red-text'>I am a Software Engineer</h1>
               <div className='break-div' />
               <div className='detail-intro'>
-                <img src={FB} />
-                <img src={INS} />
-                <img src={IN} />
-                <img src={PS} />
+                <img src={FB} onClick={() => {window.open("https://www.facebook.com/li.liu.545", "_blank")}}/>
+                <img src={INS} onClick={() => {window.open("https://www.instagram.com/liliu0406/", "_blank")}}/>
+                <img src={IN} onClick={() => {window.open("https://www.linkedin.com/in/li-liu-96737113b/", "_blank")}}/>
+                <img src={SM} onClick={() => {window.open("https://steamcommunity.com/profiles/76561198076365471", "_blank")}}/>
               </div>
             </div>
           </div>

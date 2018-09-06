@@ -62,21 +62,14 @@
       &:hover {
         color: #990000;
       }
+
+      &.credit-div {
+        margin: auto 0 0 0;
+      }
+
       p {
         transition: 300ms ease;
       }
-
-      .blog-back, .portfolio-back, .videos-back, .contact-back {
-
-        z-index: -1;
-        position: absolute;
-        left: 15px;
-        height: 30px;
-        width: 30px;
-        border-radius: 15px;
-      }
-
-
     }
 
   }

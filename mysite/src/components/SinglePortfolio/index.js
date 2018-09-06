@@ -11,7 +11,7 @@ export default class SinglePortfolio extends Component {
 
   componentDidMount() {
     TweenMax.staggerFrom(
-      this.portRef.current.children, 1.0, { x:-50, autoAlpha:0 }, 0.2
+      this.portRef.current.children, 1.5, { x:-50, autoAlpha:0 }, 0.5
     )
   }
 

@@ -6,9 +6,7 @@ import { TweenMax, TimelineMax, Expo } from "gsap";
 import './WelcomeAnime.scss';
 import { watchWelcome } from '../../actions/user.actions';
 
-//Provide triangle colors
-const COLORS = ['#ff2400', '#D3D3D3', '	#FFFFFF'];
-const DENSITY = 80;
+
 
 class WelcomeAnime extends Component {
   constructor(props) {
@@ -17,54 +15,14 @@ class WelcomeAnime extends Component {
     this.welcomeRef = React.createRef();
     this.pageRef = React.createRef();
 
-    //Generate all trianlges
-    let tempArray = []
-    for (let i = 0; i < DENSITY; i++) {
-      let newTriangle = {
-        opacityEnd: Math.random(),
-        rotate: Math.random() * 360,
-        color: COLORS[Math.floor(Math.random()*COLORS.length)],
-        reference: React.createRef(),
-        yStart:  Math.random() * 400 - 200,
-        yEnd: Math.random() * 400 - 200,
-        scale: Math.random() * 2,
-      }
-      tempArray.push(newTriangle);
-    }
-
-    this.triangles = tempArray;
-
     this.state = {
       welcomeAnime: false,
-      triAnime: true,
     }
 
-  }
-
-  animateTriangles = () => {
-    const { triangles } = this;
-    this.triangles.forEach((el, i) => {
-      let tl =  new TimelineMax({delay:i*0.01});
-      tl.fromTo(el.reference.current, 1,
-        {y: el.yStart, x: 0, opacity: 0},
-        {y: el.yEnd, x: this.pageRef.current.clientWidth/2 + (Math.random() * 200 - 100), rotation: el.rotate/2, opacity: el.opacityEnd, scale: el.scale, ease: Expo.easeOut});
-      tl.to(el.reference.current, 1,
-        {y: el.yStart, x: this.pageRef.current.clientWidth-80, opacity: 0, scale: 1 , ease: Expo.easeIn}
-      );
-    });
-  }
-
-  renderTriangles = (el, i) => {
-    return (
-      <svg width="50.308px" height="50.309px" viewBox="0 0 100 100" ref={el.reference} key={i}>
-        <polygon points="0 0, 0 100, 100 0" fill={el.color}/>
-      </svg>
-    );
   }
 
   componentDidMount() {
     setTimeout(() => {this.welcomeAnim()}, 800)
-    this.animateTriangles();
   }
 
   welcomeAnim = () => {
@@ -96,14 +54,6 @@ class WelcomeAnime extends Component {
   render() {
     return (
       <div className="WelcomeAnime" ref={this.pageRef}>
-        {
-          this.state.triAnime &&
-          <div className="triangleDiv">
-            {
-              this.triangles.map(this.renderTriangles)
-            }
-          </div>
-        }
         {
           this.state.welcomeAnime &&
           <div className="svg-div">
